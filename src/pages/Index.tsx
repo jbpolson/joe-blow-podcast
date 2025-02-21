@@ -4,6 +4,23 @@ import { ArrowRight } from "lucide-react";
 const Index = () => {
   const [email, setEmail] = useState("");
 
+  const handleButtonHover = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const button = e.currentTarget;
+    const rect = button.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // Calculate the movement based on cursor position
+    const moveX = (x - rect.width / 2) / rect.width * 4;
+    const moveY = (y - rect.height / 2) / rect.height * 4;
+    
+    button.style.transform = `translate(${moveX}px, ${moveY}px)`;
+  };
+
+  const handleButtonLeave = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.currentTarget.style.transform = 'translate(0, 0)';
+  };
+
   const episodes = [{
     number: "01",
     title: "Mike Lloyd: Building and scaling innovation",
@@ -37,12 +54,16 @@ const Index = () => {
             <img src="/lovable-uploads/ab081bb6-32f6-4e5b-9545-85d35726c04c.png" alt="FWD Obsessed Logo" className="h-8" />
             <div className="flex gap-4">
               <button 
-                className="px-6 py-2 rounded-full border border-black text-black hover:bg-highlight hover:border-highlight hover:text-white transition-colors"
+                className="px-6 py-2 rounded-full border border-black text-black hover:bg-highlight hover:border-highlight hover:text-white transition-all duration-200"
+                onMouseMove={handleButtonHover}
+                onMouseLeave={handleButtonLeave}
               >
                 Episodes
               </button>
               <button 
-                className="px-6 py-2 rounded-full bg-black text-white hover:bg-highlight transition-colors"
+                className="px-6 py-2 rounded-full bg-black text-white hover:bg-highlight transition-all duration-200"
+                onMouseMove={handleButtonHover}
+                onMouseLeave={handleButtonLeave}
               >
                 Subscribe
               </button>
