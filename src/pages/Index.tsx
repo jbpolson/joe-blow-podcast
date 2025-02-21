@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
@@ -69,7 +68,6 @@ const Index = () => {
   };
 
   return <div className="min-h-screen">
-      {/* Top Navigation */}
       <nav className="absolute top-0 left-0 right-0 flex justify-between items-center px-8 py-6 z-50">
         <img 
           src="/lovable-uploads/045a54d4-e9fd-4885-bdb1-a02182b034a0.png" 
@@ -94,7 +92,6 @@ const Index = () => {
         </div>
       </nav>
 
-      {/* Video Hero Section */}
       <div className="relative h-screen w-full overflow-hidden bg-white">
         <video 
           autoPlay 
@@ -114,7 +111,6 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Content Section */}
       <div>
         <div className="container mx-auto px-4 pt-32 pb-20">
           <div className="max-w-4xl mx-auto">
@@ -131,16 +127,13 @@ const Index = () => {
                 LEADERS & ENTREPRENEURS
               </h1>
               <p className="text-lg text-gray-600 mb-8 max-w-2xl">
-                Join our discussion as we talk to breakthrough business leaders and entrepreneurs 
-                about their journey to success. Each week we dive deep into their stories, 
-                strategies, and insights.
+                Hosted by Tom Uhlich and Iopo Aso, we dive into the lives of those at the top of their field and those who have survived the unthinkable. From the relentless pursuit of greatness to the darkest battles fought in silence, Joe Blow exposes the issues we all face but are too scared to admit. No bullshit, no filter - just the raw, unvarnished truth.
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Episodes Section */}
       <div className="container mx-auto px-4 py-20">
         <h2 className="text-4xl font-bold mb-12 animate-slide-up">
           LATEST EPISODES
@@ -164,7 +157,6 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Co-hosts Section */}
       <div className="bg-gray-50 py-20">
         <div className="container mx-auto px-4 mb-12">
           <h2 className="text-4xl font-bold">
@@ -181,7 +173,6 @@ const Index = () => {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 flex">
-            {/* Left host hover area */}
             <div 
               className="w-1/2 h-full relative cursor-none"
               onMouseMove={(e) => handleHostHover(e, 'left')}
@@ -194,7 +185,6 @@ const Index = () => {
                 TOM UHLICH
               </div>
             </div>
-            {/* Right host hover area */}
             <div 
               className="w-1/2 h-full relative cursor-none"
               onMouseMove={(e) => handleHostHover(e, 'right')}
@@ -211,7 +201,6 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Contact Section */}
       <div className="container mx-auto px-4 py-20">
         <div className="max-w-4xl">
           <h2 className="text-4xl font-bold mb-12">
@@ -236,7 +225,6 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Footer */}
       <footer className="border-t py-8">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
