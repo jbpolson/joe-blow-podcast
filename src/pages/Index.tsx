@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
@@ -47,23 +46,23 @@ const Index = () => {
   const episodes = [{
     number: "01",
     title: "Kate Malvern: Beating cancer after a four-month death sentence",
-    date: "Mar 12, 2024"
+    date: "Mar 12, 2025"
   }, {
     number: "02",
     title: "Chloe Mascord: Breaking taboos - sex, intimacy, and self-discovery",
-    date: "Mar 19, 2024"
+    date: "Mar 19, 2025"
   }, {
     number: "03",
     title: "Matt Smith: Growing up gay in rural New Zealand",
-    date: "Mar 26, 2024"
+    date: "Mar 26, 2025"
   }, {
     number: "04",
     title: "Rob Thomas: From small watch business to multimillion-dollar success",
-    date: "Apr 3, 2024"
+    date: "Apr 3, 2025"
   }, {
     number: "05",
     title: "Iopu Aso: All Black, family man, and leader",
-    date: "Apr 10, 2024"
+    date: "Apr 10, 2025"
   }];
 
   const handleSubmit = (e: React.FormEvent) => {
