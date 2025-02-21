@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
@@ -97,16 +96,27 @@ const Index = () => {
             CO-HOSTS ↓
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl">
-            <div className="bg-white p-8 rounded-lg shadow-sm">
-              <img src="/lovable-uploads/bbb94da7-8246-4cc1-b4a2-bb5678f988e5.png" alt="Host Dave" className="w-32 h-32 object-cover rounded-full mb-4" />
-              <h3 className="text-xl font-bold mb-2">DAVE KALLOE</h3>
-              <p className="text-gray-600">TECH ENTHUSIAST</p>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-sm">
-              <img src="/lovable-uploads/bbb94da7-8246-4cc1-b4a2-bb5678f988e5.png" alt="Host Pete" className="w-32 h-32 object-cover rounded-full mb-4" />
-              <h3 className="text-xl font-bold mb-2">PETE KEAN</h3>
-              <p className="text-gray-600">LEAD STRATEGIST</p>
+          <div className="relative max-w-4xl mx-auto h-[600px] overflow-hidden">
+            <img 
+              src="/lovable-uploads/161c86b3-b1a6-465b-a4f9-9843d1ead1a8.png" 
+              alt="Podcast Hosts" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 flex">
+              {/* Left host hover area */}
+              <div className="w-1/2 h-full group cursor-pointer relative">
+                <div className="absolute bottom-0 left-0 w-full p-6 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <h3 className="text-xl font-bold">TOM UHLICH</h3>
+                  <p className="text-gray-200">TECH ENTHUSIAST</p>
+                </div>
+              </div>
+              {/* Right host hover area */}
+              <div className="w-1/2 h-full group cursor-pointer relative">
+                <div className="absolute bottom-0 left-0 w-full p-6 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <h3 className="text-xl font-bold">IOPU ASO</h3>
+                  <p className="text-gray-200">LEAD STRATEGIST</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
