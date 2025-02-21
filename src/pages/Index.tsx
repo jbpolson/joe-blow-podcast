@@ -72,7 +72,7 @@ const Index = () => {
       </nav>
 
       {/* Video Hero Section */}
-      <div className="relative h-screen w-full overflow-hidden">
+      <div className="relative h-screen w-full overflow-hidden bg-white">
         <div className="absolute inset-0 bg-black/50 z-10"></div>
         <video 
           autoPlay 
