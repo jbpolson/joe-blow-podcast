@@ -43,6 +43,13 @@ const Index = () => {
     }
   };
 
+  const scrollToEpisodes = () => {
+    const episodesSection = document.querySelector('#episodes');
+    if (episodesSection) {
+      episodesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const episodes = [{
     number: "01",
     title: "Kate Malvern: Beating cancer after a four-month death sentence",
@@ -83,6 +90,7 @@ const Index = () => {
             className="px-6 py-2 rounded-full border border-black text-black hover:bg-highlight hover:border-highlight hover:text-white transition-all duration-200"
             onMouseMove={handleButtonHover}
             onMouseLeave={handleButtonLeave}
+            onClick={scrollToEpisodes}
           >
             Episodes
           </button>
@@ -146,7 +154,7 @@ const Index = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-20">
+      <div className="container mx-auto px-4 py-20" id="episodes">
         <h2 className="text-4xl font-bold mb-12 animate-slide-up">
           LATEST EPISODES
           <br />
