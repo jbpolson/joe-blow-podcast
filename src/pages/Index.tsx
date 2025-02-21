@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
@@ -51,29 +50,27 @@ const Index = () => {
       {/* Hero Section */}
       <div className="relative min-h-screen pattern-bg">
         <div className="container mx-auto px-4 pt-32 pb-20">
-          <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm py-4 shadow-sm">
-            <div className="container mx-auto px-8 flex justify-between items-center">
-              <img 
-                src="/lovable-uploads/045a54d4-e9fd-4885-bdb1-a02182b034a0.png" 
-                alt="Brand Logo" 
-                className="h-10 w-10"
-              />
-              <div className="flex gap-4">
-                <button 
-                  className="px-6 py-2 rounded-full border border-black text-black hover:bg-highlight hover:border-highlight hover:text-white transition-all duration-200"
-                  onMouseMove={handleButtonHover}
-                  onMouseLeave={handleButtonLeave}
-                >
-                  Episodes
-                </button>
-                <button 
-                  className="px-6 py-2 rounded-full bg-black text-white hover:bg-highlight transition-all duration-200"
-                  onMouseMove={handleButtonHover}
-                  onMouseLeave={handleButtonLeave}
-                >
-                  Subscribe
-                </button>
-              </div>
+          <nav className="absolute top-8 left-0 right-0 flex justify-between items-center px-8">
+            <img 
+              src="/lovable-uploads/045a54d4-e9fd-4885-bdb1-a02182b034a0.png" 
+              alt="Brand Logo" 
+              className="h-10 w-10"
+            />
+            <div className="flex gap-4">
+              <button 
+                className="px-6 py-2 rounded-full border border-black text-black hover:bg-highlight hover:border-highlight hover:text-white transition-all duration-200"
+                onMouseMove={handleButtonHover}
+                onMouseLeave={handleButtonLeave}
+              >
+                Episodes
+              </button>
+              <button 
+                className="px-6 py-2 rounded-full bg-black text-white hover:bg-highlight transition-all duration-200"
+                onMouseMove={handleButtonHover}
+                onMouseLeave={handleButtonLeave}
+              >
+                Subscribe
+              </button>
             </div>
           </nav>
           
