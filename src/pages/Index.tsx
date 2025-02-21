@@ -11,8 +11,8 @@ const Index = () => {
     const y = e.clientY - rect.top;
     
     // Calculate the movement based on cursor position with increased effect
-    const moveX = (x - rect.width / 2) / rect.width * 15;  // Increased from 4 to 15
-    const moveY = (y - rect.height / 2) / rect.height * 15; // Increased from 4 to 15
+    const moveX = (x - rect.width / 2) / rect.width * 50;  // Increased to 50
+    const moveY = (y - rect.height / 2) / rect.height * 50; // Increased to 50
     
     button.style.transform = `translate(${moveX}px, ${moveY}px)`;
   };
