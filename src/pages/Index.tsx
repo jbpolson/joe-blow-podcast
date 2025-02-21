@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
@@ -89,33 +90,33 @@ const Index = () => {
 
       {/* Co-hosts Section */}
       <div className="bg-gray-50 py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12">
+        <div className="container mx-auto px-4 mb-12">
+          <h2 className="text-4xl font-bold">
             MEET THE
             <br />
             CO-HOSTS ↓
           </h2>
+        </div>
 
-          <div className="relative max-w-4xl mx-auto h-[600px] overflow-hidden">
-            <img 
-              src="/lovable-uploads/161c86b3-b1a6-465b-a4f9-9843d1ead1a8.png" 
-              alt="Podcast Hosts" 
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 flex">
-              {/* Left host hover area */}
-              <div className="w-1/2 h-full group cursor-pointer relative">
-                <div className="absolute bottom-0 left-0 w-full p-6 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h3 className="text-xl font-bold">TOM UHLICH</h3>
-                  <p className="text-gray-200">TECH ENTHUSIAST</p>
-                </div>
+        <div className="relative h-[600px] overflow-hidden">
+          <img 
+            src="/lovable-uploads/161c86b3-b1a6-465b-a4f9-9843d1ead1a8.png" 
+            alt="Podcast Hosts" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 flex">
+            {/* Left host hover area */}
+            <div className="w-1/2 h-full group cursor-pointer relative">
+              <div className="absolute bottom-0 left-0 w-full p-6 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h3 className="text-xl font-bold">TOM UHLICH</h3>
+                <p className="text-gray-200">TECH ENTHUSIAST</p>
               </div>
-              {/* Right host hover area */}
-              <div className="w-1/2 h-full group cursor-pointer relative">
-                <div className="absolute bottom-0 left-0 w-full p-6 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h3 className="text-xl font-bold">IOPU ASO</h3>
-                  <p className="text-gray-200">LEAD STRATEGIST</p>
-                </div>
+            </div>
+            {/* Right host hover area */}
+            <div className="w-1/2 h-full group cursor-pointer relative">
+              <div className="absolute bottom-0 left-0 w-full p-6 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h3 className="text-xl font-bold">IOPU ASO</h3>
+                <p className="text-gray-200">LEAD STRATEGIST</p>
               </div>
             </div>
           </div>
