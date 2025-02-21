@@ -108,12 +108,12 @@ const Index = () => {
               <img 
                 src="/lovable-uploads/9f8cef4a-1d4a-4bd1-b1eb-e85750b2173a.png"
                 alt="Logo Black"
-                className="w-full transition-opacity duration-300 group-hover:opacity-0"
+                className="w-full"
               />
               <img 
                 src="/lovable-uploads/850fea03-55ef-4c5a-a383-9922824d3f5d.png"
                 alt="Logo Pink"
-                className="w-full absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                className="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
               />
             </div>
           </div>
