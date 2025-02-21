@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
@@ -123,9 +122,8 @@ const Index = () => {
                 PODCAST
               </span>
               <h1 className="text-6xl font-bold mb-6">
-                A PODCAST ABOUT <br />
-                REAL PEOPLE AND <br />
-                RAW STORIES
+                A PODCAST ABOUT REAL <br />
+                PEOPLE AND RAW STORIES
               </h1>
               <p className="text-lg text-gray-600 mb-8 max-w-2xl">
                 Hosted by Tom Uhlich and Iopo Aso, we dive into the lives of those at the top of their field and those who have survived the unthinkable. From the relentless pursuit of greatness to the darkest battles fought in silence, Joe Blow exposes the issues we all face but are too scared to admit. No bullshit, no filter - just the raw, unvarnished truth.
