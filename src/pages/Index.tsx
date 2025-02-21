@@ -121,7 +121,7 @@ const Index = () => {
   return <div className="min-h-screen">
       <nav className="absolute top-0 left-0 right-0 flex justify-between items-center px-8 py-6 z-50">
         <img 
-          src="lovable-uploads/045a54d4-e9fd-4885-bdb1-a02182b034a0.png" 
+          src="/lovable-uploads/045a54d4-e9fd-4885-bdb1-a02182b034a0.png" 
           alt="Brand Logo" 
           className="h-10 w-10"
         />
@@ -162,12 +162,12 @@ const Index = () => {
           >
             <div className="relative">
               <img 
-                src="lovable-uploads/9f8cef4a-1d4a-4bd1-b1eb-e85750b2173a.png"
+                src="/lovable-uploads/9f8cef4a-1d4a-4bd1-b1eb-e85750b2173a.png"
                 alt="Logo Black"
                 className="w-full logo-image transition-all duration-200"
               />
               <img 
-                src="lovable-uploads/850fea03-55ef-4c5a-a383-9922824d3f5d.png"
+                src="/lovable-uploads/850fea03-55ef-4c5a-a383-9922824d3f5d.png"
                 alt="Logo Pink"
                 className="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
               />
@@ -232,7 +232,7 @@ const Index = () => {
 
         <div className="relative h-[600px] overflow-hidden">
           <img 
-            src="lovable-uploads/161c86b3-b1a6-465b-a4f9-9843d1ead1a8.png" 
+            src="/lovable-uploads/161c86b3-b1a6-465b-a4f9-9843d1ead1a8.png" 
             alt="Podcast Hosts" 
             className="w-full h-full object-cover"
           />
@@ -320,7 +320,7 @@ const Index = () => {
       <footer className="border-t py-8">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
-            <img src="lovable-uploads/ab081bb6-32f6-4e5b-9545-85d35726c04c.png" alt="FWD Obsessed Logo" className="h-6" />
+            <img src="/lovable-uploads/ab081bb6-32f6-4e5b-9545-85d35726c04c.png" alt="FWD Obsessed Logo" className="h-6" />
             <div className="flex space-x-6">
               <a href="#" className="text-gray-600 hover:text-highlight">Spotify</a>
               <a href="#" className="text-gray-600 hover:text-highlight">Apple Podcasts</a>
