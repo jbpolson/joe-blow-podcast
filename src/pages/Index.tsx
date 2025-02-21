@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
@@ -18,6 +19,29 @@ const Index = () => {
 
   const handleButtonLeave = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.currentTarget.style.transform = 'translate(0, 0)';
+  };
+
+  const handleLogoHover = (e: React.MouseEvent<HTMLDivElement>) => {
+    const container = e.currentTarget;
+    const rect = container.getBoundingClientRect();
+    const logo = container.querySelector('.logo-image') as HTMLImageElement;
+    
+    if (logo) {
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const moveX = (x - rect.width / 2) / rect.width * 50;
+      const moveY = (y - rect.height / 2) / rect.height * 50;
+      
+      logo.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    }
+  };
+
+  const handleLogoLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    const logo = e.currentTarget.querySelector('.logo-image') as HTMLImageElement;
+    if (logo) {
+      logo.style.transform = 'translate(0, 0)';
+    }
   };
 
   const handleHostHover = (e: React.MouseEvent<HTMLDivElement>, side: 'left' | 'right') => {
@@ -115,12 +139,16 @@ const Index = () => {
           <source src="https://cdn.prod.website-files.com/62f4170ac69d4a623abe7d3c/62f546e1e267c573c663a1de_Masthead_Video-transcode.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 z-20 flex items-center justify-center">
-          <div className="relative w-1/2 max-w-3xl group">
+          <div 
+            className="relative w-1/2 max-w-3xl cursor-none"
+            onMouseMove={handleLogoHover}
+            onMouseLeave={handleLogoLeave}
+          >
             <div className="relative">
               <img 
                 src="/lovable-uploads/9f8cef4a-1d4a-4bd1-b1eb-e85750b2173a.png"
                 alt="Logo Black"
-                className="w-full transition-opacity duration-300 group-hover:opacity-0"
+                className="w-full logo-image transition-all duration-200"
               />
               <img 
                 src="/lovable-uploads/850fea03-55ef-4c5a-a383-9922824d3f5d.png"
