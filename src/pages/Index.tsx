@@ -21,6 +21,29 @@ const Index = () => {
     e.currentTarget.style.transform = 'translate(0, 0)';
   };
 
+  const handleHostHover = (e: React.MouseEvent<HTMLDivElement>, side: 'left' | 'right') => {
+    const container = e.currentTarget;
+    const rect = container.getBoundingClientRect();
+    const button = container.querySelector('.host-button') as HTMLDivElement;
+    
+    if (button) {
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      button.style.left = `${x}px`;
+      button.style.top = `${y}px`;
+      button.style.transform = 'translate(-50%, -50%)';
+      button.style.opacity = '1';
+    }
+  };
+
+  const handleHostLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    const button = e.currentTarget.querySelector('.host-button') as HTMLDivElement;
+    if (button) {
+      button.style.opacity = '0';
+    }
+  };
+
   const episodes = [{
     number: "01",
     title: "Mike Lloyd: Building and scaling innovation",
@@ -159,17 +182,29 @@ const Index = () => {
           />
           <div className="absolute inset-0 flex">
             {/* Left host hover area */}
-            <div className="w-1/2 h-full group cursor-pointer relative">
-              <div className="absolute bottom-0 left-0 w-full p-6 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <h3 className="text-xl font-bold">TOM UHLICH</h3>
-                <p className="text-gray-200">TECH ENTHUSIAST</p>
+            <div 
+              className="w-1/2 h-full relative cursor-none"
+              onMouseMove={(e) => handleHostHover(e, 'left')}
+              onMouseLeave={handleHostLeave}
+            >
+              <div 
+                className="host-button absolute px-6 py-2 rounded-full bg-highlight text-white opacity-0 transition-opacity pointer-events-none whitespace-nowrap"
+                style={{ transform: 'translate(-50%, -50%)' }}
+              >
+                TOM UHLICH
               </div>
             </div>
             {/* Right host hover area */}
-            <div className="w-1/2 h-full group cursor-pointer relative">
-              <div className="absolute bottom-0 left-0 w-full p-6 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <h3 className="text-xl font-bold">IOPU ASO</h3>
-                <p className="text-gray-200">LEAD STRATEGIST</p>
+            <div 
+              className="w-1/2 h-full relative cursor-none"
+              onMouseMove={(e) => handleHostHover(e, 'right')}
+              onMouseLeave={handleHostLeave}
+            >
+              <div 
+                className="host-button absolute px-6 py-2 rounded-full bg-highlight text-white opacity-0 transition-opacity pointer-events-none whitespace-nowrap"
+                style={{ transform: 'translate(-50%, -50%)' }}
+              >
+                IOPU ASO
               </div>
             </div>
           </div>
