@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
@@ -30,8 +29,8 @@ const Index = () => {
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       
-      const moveX = (x - rect.width / 2) / rect.width * 50;
-      const moveY = (y - rect.height / 2) / rect.height * 50;
+      const moveX = (x - rect.width / 2) / rect.width * 200;
+      const moveY = (y - rect.height / 2) / rect.height * 200;
       
       logo.style.transform = `translate(${moveX}px, ${moveY}px)`;
     }
