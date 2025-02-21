@@ -224,7 +224,12 @@ const Index = () => {
               <input type="email" placeholder="Email" className="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-highlight" value={email} onChange={e => setEmail(e.target.value)} />
             </div>
             <textarea placeholder="Message" rows={4} className="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-highlight" />
-            <button type="submit" className="px-8 py-4 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors">
+            <button 
+              type="submit" 
+              className="px-6 py-2 rounded-full bg-black text-white hover:bg-highlight transition-all duration-200"
+              onMouseMove={handleButtonHover}
+              onMouseLeave={handleButtonLeave}
+            >
               Send Message
             </button>
           </form>
