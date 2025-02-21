@@ -1,7 +1,10 @@
+
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
+
 const Index = () => {
   const [email, setEmail] = useState("");
+
   const episodes = [{
     number: "01",
     title: "Mike Lloyd: Building and scaling innovation",
@@ -19,12 +22,14 @@ const Index = () => {
     title: "Having a startup - From zero to win",
     date: "Feb 23, 2024"
   }];
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle newsletter signup
     console.log("Newsletter signup:", email);
     setEmail("");
   };
+
   return <div className="min-h-screen">
       {/* Hero Section */}
       <div className="relative min-h-screen pattern-bg">
@@ -38,7 +43,7 @@ const Index = () => {
           
           <div className="max-w-4xl mx-auto">
             <div className="animate-fade-in">
-              <span className="inline-block px-3 py-1 bg-yellow-300 rounded-full mb-6 text-[F49ABE]">
+              <span className="inline-block px-3 py-1 bg-highlight rounded-full mb-6">
                 PODCAST
               </span>
               <h1 className="text-6xl font-bold mb-6">
