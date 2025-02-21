@@ -43,7 +43,7 @@ const Index = () => {
           
           <div className="max-w-4xl mx-auto">
             <div className="animate-fade-in">
-              <span className="inline-block px-3 py-1 bg-highlight rounded-full mb-6">
+              <span className="inline-block px-3 py-1 bg-[#F49ABE] text-white rounded-full mb-6">
                 PODCAST
               </span>
               <h1 className="text-6xl font-bold mb-6">
