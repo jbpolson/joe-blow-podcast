@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
@@ -39,29 +38,6 @@ const Index = () => {
 
   const handleHostLeave = (e: React.MouseEvent<HTMLDivElement>) => {
     const button = e.currentTarget.querySelector('.host-button') as HTMLDivElement;
-    if (button) {
-      button.style.opacity = '0';
-    }
-  };
-
-  const handleScrollButtonHover = (e: React.MouseEvent<HTMLDivElement>) => {
-    const container = e.currentTarget;
-    const rect = container.getBoundingClientRect();
-    const button = container.querySelector('.scroll-button') as HTMLDivElement;
-    
-    if (button) {
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      button.style.left = `${x}px`;
-      button.style.top = `${y}px`;
-      button.style.transform = 'translate(-50%, -50%)';
-      button.style.opacity = '1';
-    }
-  };
-
-  const handleScrollButtonLeave = (e: React.MouseEvent<HTMLDivElement>) => {
-    const button = e.currentTarget.querySelector('.scroll-button') as HTMLDivElement;
     if (button) {
       button.style.opacity = '0';
     }
@@ -110,19 +86,14 @@ const Index = () => {
           className="h-10 w-10"
         />
         <div className="flex gap-4">
-          <div 
-            className="relative cursor-none"
-            onMouseMove={handleScrollButtonHover}
-            onMouseLeave={handleScrollButtonLeave}
+          <button 
+            className="px-6 py-2 rounded-full border border-black text-black hover:bg-highlight hover:border-highlight hover:text-white transition-all duration-200"
+            onMouseMove={handleButtonHover}
+            onMouseLeave={handleButtonLeave}
+            onClick={scrollToEpisodes}
           >
-            <div 
-              className="scroll-button absolute px-6 py-2 rounded-full border border-black text-black hover:bg-highlight hover:border-highlight hover:text-white transition-all duration-200 opacity-0 pointer-events-none"
-              onClick={scrollToEpisodes}
-            >
-              Episodes
-            </div>
-            <div className="px-6 py-2 opacity-0">Episodes</div>
-          </div>
+            Episodes
+          </button>
           <button 
             className="px-6 py-2 rounded-full bg-black text-white hover:bg-highlight transition-all duration-200"
             onMouseMove={handleButtonHover}
