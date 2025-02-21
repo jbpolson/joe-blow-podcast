@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
@@ -10,9 +11,8 @@ const Index = () => {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     
-    // Calculate the movement based on cursor position with increased effect
-    const moveX = (x - rect.width / 2) / rect.width * 150;  // Increased dramatically to 150
-    const moveY = (y - rect.height / 2) / rect.height * 150; // Increased dramatically to 150
+    const moveX = (x - rect.width / 2) / rect.width * 150;
+    const moveY = (y - rect.height / 2) / rect.height * 150;
     
     button.style.transform = `translate(${moveX}px, ${moveY}px)`;
   };
@@ -41,13 +41,33 @@ const Index = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle newsletter signup
     console.log("Newsletter signup:", email);
     setEmail("");
   };
 
   return <div className="min-h-screen">
-      {/* Hero Section */}
+      {/* Video Hero Section */}
+      <div className="relative h-screen w-full overflow-hidden">
+        <div className="absolute inset-0 bg-black/50 z-10"></div>
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="https://cdn.prod.website-files.com/62f4170ac69d4a623abe7d3c/62f546e1e267c573c663a1de_Masthead_Video-transcode.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 z-20 flex items-center justify-center">
+          <img 
+            src="/lovable-uploads/1be95a79-c26c-4405-9245-5240e50fb7f1.png"
+            alt="Logo Overlay"
+            className="w-1/2 max-w-3xl"
+          />
+        </div>
+      </div>
+
+      {/* Content Section */}
       <div className="relative min-h-screen pattern-bg">
         <div className="container mx-auto px-4 pt-32 pb-20">
           <nav className="absolute top-8 left-0 right-0 flex justify-between items-center px-8">
