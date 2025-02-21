@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
@@ -91,7 +92,7 @@ const Index = () => {
       </div>
 
       {/* Content Section */}
-      <div className="relative min-h-screen pattern-bg">
+      <div>
         <div className="container mx-auto px-4 pt-32 pb-20">
           <div className="max-w-4xl mx-auto">
             <div className="animate-fade-in">
