@@ -103,7 +103,7 @@ const Index = () => {
           <source src="https://cdn.prod.website-files.com/62f4170ac69d4a623abe7d3c/62f546e1e267c573c663a1de_Masthead_Video-transcode.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 z-20 flex items-center justify-center">
-          <div className="relative w-1/2 max-w-3xl">
+          <div className="relative w-1/2 max-w-3xl group">
             <img 
               src="/lovable-uploads/9f8cef4a-1d4a-4bd1-b1eb-e85750b2173a.png"
               alt="Logo Black"

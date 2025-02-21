@@ -74,15 +74,3 @@
 .episode-link:hover:after {
   @apply w-full;
 }
-
-.logo-container {
-  @apply relative group;
-}
-
-.logo-container:hover img:first-child {
-  opacity: 0;
-}
-
-.logo-container:hover img:last-child {
-  opacity: 1;
-}
