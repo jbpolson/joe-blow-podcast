@@ -1,8 +1,17 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 const Index = () => {
   const [email, setEmail] = useState("");
+  const [openTomDialog, setOpenTomDialog] = useState(false);
+  const [openIopuDialog, setOpenIopuDialog] = useState(false);
 
   const handleButtonHover = (e: React.MouseEvent<HTMLButtonElement>) => {
     const button = e.currentTarget;
@@ -63,6 +72,14 @@ const Index = () => {
     const button = e.currentTarget.querySelector('.host-button') as HTMLDivElement;
     if (button) {
       button.style.opacity = '0';
+    }
+  };
+
+  const handleHostClick = (side: 'left' | 'right') => {
+    if (side === 'left') {
+      setOpenTomDialog(true);
+    } else {
+      setOpenIopuDialog(true);
     }
   };
 
@@ -224,6 +241,7 @@ const Index = () => {
               className="w-1/2 h-full relative cursor-none"
               onMouseMove={(e) => handleHostHover(e, 'left')}
               onMouseLeave={handleHostLeave}
+              onClick={() => handleHostClick('left')}
             >
               <div 
                 className="host-button absolute px-6 py-2 rounded-full bg-highlight text-white opacity-0 transition-opacity pointer-events-none whitespace-nowrap"
@@ -236,6 +254,7 @@ const Index = () => {
               className="w-1/2 h-full relative cursor-none"
               onMouseMove={(e) => handleHostHover(e, 'right')}
               onMouseLeave={handleHostLeave}
+              onClick={() => handleHostClick('right')}
             >
               <div 
                 className="host-button absolute px-6 py-2 rounded-full bg-highlight text-white opacity-0 transition-opacity pointer-events-none whitespace-nowrap"
@@ -246,6 +265,32 @@ const Index = () => {
             </div>
           </div>
         </div>
+
+        <Dialog open={openTomDialog} onOpenChange={setOpenTomDialog}>
+          <DialogContent className="sm:max-w-[425px]">
+            <DialogHeader>
+              <DialogTitle>Tom Uhlich</DialogTitle>
+              <DialogDescription>
+                Tom is a seasoned podcast host and entrepreneur. With over a decade of experience in digital media, 
+                he brings a unique perspective to every conversation. His ability to connect with guests and draw out 
+                their most compelling stories has made him one of the most respected voices in podcasting.
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
+
+        <Dialog open={openIopuDialog} onOpenChange={setOpenIopuDialog}>
+          <DialogContent className="sm:max-w-[425px]">
+            <DialogHeader>
+              <DialogTitle>Iopu Aso</DialogTitle>
+              <DialogDescription>
+                Iopu is a former professional athlete turned media personality. His background in sports and leadership 
+                brings a dynamic energy to the show. Known for his insightful questions and authentic approach, 
+                Iopu helps guests feel comfortable sharing their most personal stories.
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
       </div>
 
       <div className="container mx-auto px-4 py-20">
