@@ -36,10 +36,14 @@ const Index = () => {
           <nav className="absolute top-8 left-0 right-0 flex justify-between items-center px-8">
             <img src="/lovable-uploads/ab081bb6-32f6-4e5b-9545-85d35726c04c.png" alt="FWD Obsessed Logo" className="h-8" />
             <div className="flex gap-4">
-              <button className="px-6 py-2 rounded-full border border-black text-black hover:bg-black hover:text-white transition-colors">
+              <button 
+                className="px-6 py-2 rounded-full border border-black text-black hover:bg-highlight hover:border-highlight hover:text-white transition-colors"
+              >
                 Episodes
               </button>
-              <button className="px-6 py-2 rounded-full bg-black text-white hover:bg-gray-800 transition-colors">
+              <button 
+                className="px-6 py-2 rounded-full bg-black text-white hover:bg-highlight transition-colors"
+              >
                 Subscribe
               </button>
             </div>
