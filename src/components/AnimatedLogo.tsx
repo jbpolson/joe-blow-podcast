@@ -66,6 +66,7 @@ const AnimatedLogo = () => {
     return {
       transform: `translateY(${waveOffset}px)`,
       transition: 'transform 0.3s ease-out',
+      marginLeft: index === 3 ? '1rem' : undefined, // Add extra space before the fourth letter (B)
     };
   };
 
