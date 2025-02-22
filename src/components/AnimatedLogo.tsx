@@ -35,7 +35,6 @@ const AnimatedLogo = () => {
       if (container) {
         const rect = container.getBoundingClientRect();
         const windowHeight = window.innerHeight;
-        // Modified scroll progress calculation to start when scrolling down
         const progress = Math.max(0, Math.min(1, 1 - (rect.top / windowHeight)));
         setScrollProgress(progress);
       }
@@ -53,12 +52,10 @@ const AnimatedLogo = () => {
   }, []);
 
   const getLetterStyle = (index: number) => {
-    // Remove the isVisible check to ensure letters are always displayed
-    const waveAmplitude = 50; // Fixed amplitude
-    const waveFrequency = 2; // Reduced frequency for smoother wave
-    const baseDelay = index * 0.3; // Reduced delay between letters
+    const waveAmplitude = 50;
+    const waveFrequency = 2;
+    const baseDelay = index * 0.3;
     
-    // Only apply wave effect when scrolling
     const waveOffset = scrollProgress > 0 
       ? Math.sin((scrollProgress * Math.PI * waveFrequency) + baseDelay) * waveAmplitude * scrollProgress
       : 0;
@@ -66,14 +63,14 @@ const AnimatedLogo = () => {
     return {
       transform: `translateY(${waveOffset}px)`,
       transition: 'transform 0.3s ease-out',
-      marginLeft: index === 3 ? '1rem' : undefined, // Add extra space before the fourth letter (B)
+      marginLeft: index === 3 ? '1rem' : undefined,
     };
   };
 
   return (
     <div 
       ref={containerRef}
-      className="relative w-1/2 max-w-3xl flex justify-center items-center gap-1"
+      className="relative w-4/5 md:w-1/2 max-w-3xl flex justify-center items-center gap-1"
     >
       {letterImages.map((src, index) => (
         <div
