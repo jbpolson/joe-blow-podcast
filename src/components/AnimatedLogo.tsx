@@ -54,26 +54,17 @@ const AnimatedLogo = () => {
   const getLetterStyle = (index: number) => {
     if (!isVisible) return {};
 
-    // Initial scattered positions
-    const initialOffsetX = (index - 3) * 30; // Spread letters horizontally
-    const initialOffsetY = Math.sin(index) * 40; // Stagger vertical positions
-
     // Wave animation parameters
-    const baseDelay = index * 0.5; // Increased delay between letters
-    const waveFrequency = 3; // Increased frequency for more noticeable wave
-    const waveAmplitude = Math.max(0, 1 - scrollProgress * 1.5) * 80; // Increased amplitude
+    const baseDelay = index * 0.5; // Staggered delay between letters
+    const waveFrequency = 3; // Wave frequency
+    const waveAmplitude = Math.min(1, scrollProgress * 1.5) * 80; // Amplitude increases with scroll
     
     // Calculate wave motion
     const waveOffset = Math.sin((scrollProgress * Math.PI * waveFrequency) + baseDelay) * waveAmplitude;
     
-    // Combine initial scatter with wave motion
-    const totalOffsetX = initialOffsetX * (1 - scrollProgress);
-    const totalOffsetY = (initialOffsetY * (1 - scrollProgress)) + waveOffset;
-    
     return {
-      transform: `translate(${totalOffsetX}px, ${totalOffsetY}px)`,
-      opacity: Math.min(1, scrollProgress * 2),
-      transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-in-out',
+      transform: `translateY(${waveOffset}px)`,
+      transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
     };
   };
 
