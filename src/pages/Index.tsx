@@ -152,7 +152,7 @@ const Index = () => {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="https://cdn.prod.website-files.com/62f4170ac69d4a623abe7d3c/62f546e1e267c573c663a1de_Masthead_Video-transcode.mp4" type="video/mp4" />
+          <source src="https://cdn.shopify.com/videos/c/o/v/57e2b14f231f40189d7c992c9f8d3609.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 z-20 flex items-center justify-center">
           <div 
