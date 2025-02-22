@@ -35,7 +35,8 @@ const AnimatedLogo = () => {
       if (container) {
         const rect = container.getBoundingClientRect();
         const windowHeight = window.innerHeight;
-        const progress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (windowHeight + rect.height)));
+        // Modified scroll progress calculation to start when scrolling down
+        const progress = Math.max(0, Math.min(1, 1 - (rect.top / windowHeight)));
         setScrollProgress(progress);
       }
     };
@@ -52,26 +53,26 @@ const AnimatedLogo = () => {
   }, []);
 
   const getLetterStyle = (index: number) => {
-    if (!isVisible) return {};
-
-    // Wave animation parameters
-    const baseDelay = index * 0.5; // Staggered delay between letters
-    const waveFrequency = 3; // Wave frequency
-    const waveAmplitude = Math.min(1, scrollProgress * 1.5) * 80; // Amplitude increases with scroll
+    // Remove the isVisible check to ensure letters are always displayed
+    const waveAmplitude = 50; // Fixed amplitude
+    const waveFrequency = 2; // Reduced frequency for smoother wave
+    const baseDelay = index * 0.3; // Reduced delay between letters
     
-    // Calculate wave motion
-    const waveOffset = Math.sin((scrollProgress * Math.PI * waveFrequency) + baseDelay) * waveAmplitude;
+    // Only apply wave effect when scrolling
+    const waveOffset = scrollProgress > 0 
+      ? Math.sin((scrollProgress * Math.PI * waveFrequency) + baseDelay) * waveAmplitude * scrollProgress
+      : 0;
     
     return {
       transform: `translateY(${waveOffset}px)`,
-      transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+      transition: 'transform 0.3s ease-out',
     };
   };
 
   return (
     <div 
       ref={containerRef}
-      className="relative w-1/2 max-w-3xl cursor-none flex justify-center items-center gap-1"
+      className="relative w-1/2 max-w-3xl flex justify-center items-center gap-1"
     >
       {letterImages.map((src, index) => (
         <div
