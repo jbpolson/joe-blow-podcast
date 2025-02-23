@@ -73,7 +73,6 @@ const Index = () => {
       />
       <Hero />
       <Introduction />
-      <EpisodeList />
       <HostsSection 
         handleHostHover={handleHostHover}
         handleHostLeave={handleHostLeave}
@@ -83,6 +82,7 @@ const Index = () => {
         openIopuDialog={openIopuDialog}
         setOpenIopuDialog={setOpenIopuDialog}
       />
+      <EpisodeList />
       <ContactForm 
         handleButtonHover={handleButtonHover}
         handleButtonLeave={handleButtonLeave}
