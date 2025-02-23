@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import {
@@ -122,7 +123,7 @@ const Index = () => {
   return <div className="min-h-screen">
       <nav className="absolute top-0 left-0 right-0 flex justify-between items-center px-8 py-6 z-50">
         <img 
-          src="/joe-blow-podcast/lovable-uploads/045a54d4-e9fd-4885-bdb1-a02182b034a0.png" 
+          src="./lovable-uploads/045a54d4-e9fd-4885-bdb1-a02182b034a0.png" 
           alt="Brand Logo" 
           className="h-10 w-10"
         />
@@ -305,7 +306,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             <img 
-              src="/joe-blow-podcast/lovable-uploads/ab081bb6-32f6-4e5b-9545-85d35726c04c.png" 
+              src="./lovable-uploads/ab081bb6-32f6-4e5b-9545-85d35726c04c.png" 
               alt="FWD Obsessed Logo" 
               className="h-6" 
             />
