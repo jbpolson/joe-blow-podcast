@@ -5,7 +5,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/joe-blow-podcast/' : '/',
+  base: '/joe-blow-podcast/',
   server: {
     host: "::",
     port: 8080,
