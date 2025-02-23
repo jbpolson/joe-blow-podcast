@@ -1,81 +1,60 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import AnimatedLogo from "@/components/AnimatedLogo";
-
 const Index = () => {
   const [email, setEmail] = useState("");
   const [openTomDialog, setOpenTomDialog] = useState(false);
   const [openIopuDialog, setOpenIopuDialog] = useState(false);
-
   const handleButtonHover = (e: React.MouseEvent<HTMLButtonElement>) => {
     const button = e.currentTarget;
     const rect = button.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
     const moveX = (x - rect.width / 2) / rect.width * 150;
     const moveY = (y - rect.height / 2) / rect.height * 150;
-    
     button.style.transform = `translate(${moveX}px, ${moveY}px)`;
   };
-
   const handleButtonLeave = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.currentTarget.style.transform = 'translate(0, 0)';
   };
-
   const handleLogoHover = (e: React.MouseEvent<HTMLDivElement>) => {
     const container = e.currentTarget;
     const rect = container.getBoundingClientRect();
     const logo = container.querySelector('.logo-image') as HTMLImageElement;
-    
     if (logo) {
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      
       const moveX = (x - rect.width / 2) / rect.width * 200;
       const moveY = (y - rect.height / 2) / rect.height * 200;
-      
       logo.style.transform = `translate(${moveX}px, ${moveY}px)`;
     }
   };
-
   const handleLogoLeave = (e: React.MouseEvent<HTMLDivElement>) => {
     const logo = e.currentTarget.querySelector('.logo-image') as HTMLImageElement;
     if (logo) {
       logo.style.transform = 'translate(0, 0)';
     }
   };
-
   const handleHostHover = (e: React.MouseEvent<HTMLDivElement>, side: 'left' | 'right') => {
     const container = e.currentTarget;
     const rect = container.getBoundingClientRect();
     const button = container.querySelector('.host-button') as HTMLDivElement;
-    
     if (button) {
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      
       button.style.left = `${x}px`;
       button.style.top = `${y}px`;
       button.style.transform = 'translate(-50%, -50%)';
       button.style.opacity = '1';
     }
   };
-
   const handleHostLeave = (e: React.MouseEvent<HTMLDivElement>) => {
     const button = e.currentTarget.querySelector('.host-button') as HTMLDivElement;
     if (button) {
       button.style.opacity = '0';
     }
   };
-
   const handleHostClick = (side: 'left' | 'right') => {
     if (side === 'left') {
       setOpenTomDialog(true);
@@ -83,14 +62,14 @@ const Index = () => {
       setOpenIopuDialog(true);
     }
   };
-
   const scrollToEpisodes = () => {
     const episodesSection = document.querySelector('#episodes');
     if (episodesSection) {
-      episodesSection.scrollIntoView({ behavior: 'smooth' });
+      episodesSection.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
   const episodes = [{
     number: "01",
     title: "Kate Malvern: Beating cancer after a four-month death sentence",
@@ -112,47 +91,26 @@ const Index = () => {
     title: "Iopu Aso: All Black, family man, and leader",
     date: "Apr 10, 2025"
   }];
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Newsletter signup:", email);
     setEmail("");
   };
-
   return <div className="min-h-screen">
       <nav className="absolute top-0 left-0 right-0 flex justify-between items-center px-8 py-6 z-50">
-        <img 
-          src="/lovable-uploads/045a54d4-e9fd-4885-bdb1-a02182b034a0.png" 
-          alt="Brand Logo" 
-          className="h-10 w-10"
-        />
+        <img src="/lovable-uploads/045a54d4-e9fd-4885-bdb1-a02182b034a0.png" alt="Brand Logo" className="h-10 w-10" />
         <div className="flex gap-4">
-          <button 
-            className="px-6 py-2 rounded-full border border-black text-black hover:bg-highlight hover:border-highlight hover:text-white transition-all duration-200"
-            onMouseMove={handleButtonHover}
-            onMouseLeave={handleButtonLeave}
-            onClick={scrollToEpisodes}
-          >
+          <button className="px-6 py-2 rounded-full border border-black text-black hover:bg-highlight hover:border-highlight hover:text-white transition-all duration-200" onMouseMove={handleButtonHover} onMouseLeave={handleButtonLeave} onClick={scrollToEpisodes}>
             Episodes
           </button>
-          <button 
-            className="px-6 py-2 rounded-full bg-black text-white hover:bg-highlight transition-all duration-200"
-            onMouseMove={handleButtonHover}
-            onMouseLeave={handleButtonLeave}
-          >
+          <button className="px-6 py-2 rounded-full bg-black text-white hover:bg-highlight transition-all duration-200" onMouseMove={handleButtonHover} onMouseLeave={handleButtonLeave}>
             Subscribe
           </button>
         </div>
       </nav>
 
       <div className="relative h-screen w-full overflow-hidden bg-white">
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
+        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
           <source src="https://cdn.shopify.com/videos/c/o/v/c292d14c8bb14e5bbe3a5539f3eb511e.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 z-20 flex items-center justify-center">
@@ -164,10 +122,9 @@ const Index = () => {
         <div className="container mx-auto px-8 pt-32 pb-20">
           <div className="max-w-4xl">
             <div className="animate-fade-in">
-              <span 
-                style={{ backgroundColor: '#F49ABE' }}
-                className="inline-block px-3 py-1 text-white rounded-full mb-6"
-              >
+              <span style={{
+              backgroundColor: '#F49ABE'
+            }} className="inline-block px-3 py-1 text-white rounded-full mb-6">
                 PODCAST
               </span>
               <h1 className="text-6xl font-bold mb-6">
@@ -215,35 +172,19 @@ const Index = () => {
         </div>
 
         <div className="relative h-[600px] overflow-hidden">
-          <img 
-            src="/lovable-uploads/161c86b3-b1a6-465b-a4f9-9843d1ead1a8.png" 
-            alt="Podcast Hosts" 
-            className="w-full h-full object-cover"
-          />
+          <img src="/lovable-uploads/161c86b3-b1a6-465b-a4f9-9843d1ead1a8.png" alt="Podcast Hosts" className="w-full h-full object-cover" />
           <div className="absolute inset-0 flex">
-            <div 
-              className="w-1/2 h-full relative cursor-none"
-              onMouseMove={(e) => handleHostHover(e, 'left')}
-              onMouseLeave={handleHostLeave}
-              onClick={() => handleHostClick('left')}
-            >
-              <div 
-                className="host-button absolute px-6 py-2 rounded-full bg-highlight text-white opacity-0 transition-opacity pointer-events-none whitespace-nowrap"
-                style={{ transform: 'translate(-50%, -50%)' }}
-              >
+            <div className="w-1/2 h-full relative cursor-none" onMouseMove={e => handleHostHover(e, 'left')} onMouseLeave={handleHostLeave} onClick={() => handleHostClick('left')}>
+              <div className="host-button absolute px-6 py-2 rounded-full bg-highlight text-white opacity-0 transition-opacity pointer-events-none whitespace-nowrap" style={{
+              transform: 'translate(-50%, -50%)'
+            }}>
                 TOM UHLICH
               </div>
             </div>
-            <div 
-              className="w-1/2 h-full relative cursor-none"
-              onMouseMove={(e) => handleHostHover(e, 'right')}
-              onMouseLeave={handleHostLeave}
-              onClick={() => handleHostClick('right')}
-            >
-              <div 
-                className="host-button absolute px-6 py-2 rounded-full bg-highlight text-white opacity-0 transition-opacity pointer-events-none whitespace-nowrap"
-                style={{ transform: 'translate(-50%, -50%)' }}
-              >
+            <div className="w-1/2 h-full relative cursor-none" onMouseMove={e => handleHostHover(e, 'right')} onMouseLeave={handleHostLeave} onClick={() => handleHostClick('right')}>
+              <div className="host-button absolute px-6 py-2 rounded-full bg-highlight text-white opacity-0 transition-opacity pointer-events-none whitespace-nowrap" style={{
+              transform: 'translate(-50%, -50%)'
+            }}>
                 IOPU ASO
               </div>
             </div>
@@ -254,11 +195,7 @@ const Index = () => {
           <DialogContent className="sm:max-w-[425px]">
             <DialogHeader>
               <DialogTitle>Tom Uhlich</DialogTitle>
-              <DialogDescription>
-                Tom is a seasoned podcast host and entrepreneur. With over a decade of experience in digital media, 
-                he brings a unique perspective to every conversation. His ability to connect with guests and draw out 
-                their most compelling stories has made him one of the most respected voices in podcasting.
-              </DialogDescription>
+              <DialogDescription>Tom Uhlich is an Austrian-born (with Slovak roots), Aussie-bred father of two who defines the word &quot;driven.&quot; He’s spent over 21 years as an entrepreneur (currently heading up Boss Money) and is a self-professed fitness freak who has eight Ironman triathlons (all under 10 hours), six marathons (all under 3 hours), and even a trio of Hyrox events under his belt. He once hitchhiked across Africa for six months with absolutely no plan – a testament to his &quot;just wing it&quot; life philosophy. A die-hard self-development junkie, Tom devours books and podcasts like they’re going out of style, which means he’s either genuinely wise by now or just really good at regurgitating other people’s quotes. He insists authenticity is everything, so on Joe Blow you can expect brutal honesty, a few accidental overshares, and the occasional motivational one-liner delivered with a grin. And if you ever need an icebreaker, ask about his grandfather – he once met Hitler.</DialogDescription>
             </DialogHeader>
           </DialogContent>
         </Dialog>
@@ -289,12 +226,7 @@ const Index = () => {
               <input type="email" placeholder="Email" className="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-highlight" value={email} onChange={e => setEmail(e.target.value)} />
             </div>
             <textarea placeholder="Message" rows={4} className="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-highlight" />
-            <button 
-              type="submit" 
-              className="px-6 py-2 rounded-full bg-black text-white hover:bg-highlight transition-all duration-200"
-              onMouseMove={handleButtonHover}
-              onMouseLeave={handleButtonLeave}
-            >
+            <button type="submit" className="px-6 py-2 rounded-full bg-black text-white hover:bg-highlight transition-all duration-200" onMouseMove={handleButtonHover} onMouseLeave={handleButtonLeave}>
               Send Message
             </button>
           </form>
@@ -304,11 +236,7 @@ const Index = () => {
       <footer className="border-t py-8">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
-            <img 
-              src="/lovable-uploads/ab081bb6-32f6-4e5b-9545-85d35726c04c.png" 
-              alt="FWD Obsessed Logo" 
-              className="h-6" 
-            />
+            <img src="/lovable-uploads/ab081bb6-32f6-4e5b-9545-85d35726c04c.png" alt="FWD Obsessed Logo" className="h-6" />
             <div className="flex space-x-6">
               <a href="#" className="text-gray-600 hover:text-highlight">Spotify</a>
               <a href="#" className="text-gray-600 hover:text-highlight">Apple Podcasts</a>
@@ -319,5 +247,4 @@ const Index = () => {
       </footer>
     </div>;
 };
-
 export default Index;
