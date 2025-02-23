@@ -162,8 +162,8 @@ const Index = () => {
       </div>
 
       <div>
-        <div className="container mx-auto px-4 pt-32 pb-20">
-          <div className="max-w-4xl mx-auto">
+        <div className="container mx-auto px-8 pt-32 pb-20">
+          <div className="max-w-4xl">
             <div className="animate-fade-in">
               <span 
                 style={{ backgroundColor: '#F49ABE' }}
