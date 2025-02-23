@@ -1,11 +1,19 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import AnimatedLogo from "@/components/AnimatedLogo";
+
 const Index = () => {
   const [email, setEmail] = useState("");
   const [openTomDialog, setOpenTomDialog] = useState(false);
   const [openIopuDialog, setOpenIopuDialog] = useState(false);
+
   const handleButtonHover = (e: React.MouseEvent<HTMLButtonElement>) => {
     const button = e.currentTarget;
     const rect = button.getBoundingClientRect();
@@ -15,9 +23,11 @@ const Index = () => {
     const moveY = (y - rect.height / 2) / rect.height * 150;
     button.style.transform = `translate(${moveX}px, ${moveY}px)`;
   };
+
   const handleButtonLeave = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.currentTarget.style.transform = 'translate(0, 0)';
   };
+
   const handleLogoHover = (e: React.MouseEvent<HTMLDivElement>) => {
     const container = e.currentTarget;
     const rect = container.getBoundingClientRect();
@@ -30,12 +40,14 @@ const Index = () => {
       logo.style.transform = `translate(${moveX}px, ${moveY}px)`;
     }
   };
+
   const handleLogoLeave = (e: React.MouseEvent<HTMLDivElement>) => {
     const logo = e.currentTarget.querySelector('.logo-image') as HTMLImageElement;
     if (logo) {
       logo.style.transform = 'translate(0, 0)';
     }
   };
+
   const handleHostHover = (e: React.MouseEvent<HTMLDivElement>, side: 'left' | 'right') => {
     const container = e.currentTarget;
     const rect = container.getBoundingClientRect();
@@ -49,12 +61,14 @@ const Index = () => {
       button.style.opacity = '1';
     }
   };
+
   const handleHostLeave = (e: React.MouseEvent<HTMLDivElement>) => {
     const button = e.currentTarget.querySelector('.host-button') as HTMLDivElement;
     if (button) {
       button.style.opacity = '0';
     }
   };
+
   const handleHostClick = (side: 'left' | 'right') => {
     if (side === 'left') {
       setOpenTomDialog(true);
@@ -62,6 +76,7 @@ const Index = () => {
       setOpenIopuDialog(true);
     }
   };
+
   const scrollToEpisodes = () => {
     const episodesSection = document.querySelector('#episodes');
     if (episodesSection) {
@@ -70,6 +85,7 @@ const Index = () => {
       });
     }
   };
+
   const episodes = [{
     number: "01",
     title: "Kate Malvern: Beating cancer after a four-month death sentence",
@@ -91,11 +107,13 @@ const Index = () => {
     title: "Iopu Aso: All Black, family man, and leader",
     date: "Apr 10, 2025"
   }];
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Newsletter signup:", email);
     setEmail("");
   };
+
   return <div className="min-h-screen">
       <nav className="absolute top-0 left-0 right-0 flex justify-between items-center px-8 py-6 z-50">
         <img src="/lovable-uploads/045a54d4-e9fd-4885-bdb1-a02182b034a0.png" alt="Brand Logo" className="h-10 w-10" />
@@ -195,7 +213,7 @@ const Index = () => {
           <DialogContent className="sm:max-w-[425px]">
             <DialogHeader>
               <DialogTitle>Tom Uhlich</DialogTitle>
-              <DialogDescription>Tom Uhlich is an Austrian-born (with Slovak roots), Aussie-bred father of two who defines the word &quot;driven.&quot; He’s spent over 21 years as an entrepreneur (currently heading up Boss Money) and is a self-professed fitness freak who has eight Ironman triathlons (all under 10 hours), six marathons (all under 3 hours), and even a trio of Hyrox events under his belt. He once hitchhiked across Africa for six months with absolutely no plan – a testament to his &quot;just wing it&quot; life philosophy. A die-hard self-development junkie, Tom devours books and podcasts like they’re going out of style, which means he’s either genuinely wise by now or just really good at regurgitating other people’s quotes. He insists authenticity is everything, so on Joe Blow you can expect brutal honesty, a few accidental overshares, and the occasional motivational one-liner delivered with a grin. And if you ever need an icebreaker, ask about his grandfather – he once met Hitler.</DialogDescription>
+              <DialogDescription>Tom Uhlich is an Austrian-born (with Slovak roots), Aussie-bred father of two who defines the word &quot;driven.&quot; He's spent over 21 years as an entrepreneur (currently heading up Boss Money) and is a self-professed fitness freak who has eight Ironman triathlons (all under 10 hours), six marathons (all under 3 hours), and even a trio of Hyrox events under his belt. He once hitchhiked across Africa for six months with absolutely no plan – a testament to his &quot;just wing it&quot; life philosophy. A die-hard self-development junkie, Tom devours books and podcasts like they're going out of style, which means he's either genuinely wise by now or just really good at regurgitating other people's quotes. He insists authenticity is everything, so on Joe Blow you can expect brutal honesty, a few accidental overshares, and the occasional motivational one-liner delivered with a grin. And if you ever need an icebreaker, ask about his grandfather – he once met Hitler.</DialogDescription>
             </DialogHeader>
           </DialogContent>
         </Dialog>
@@ -205,9 +223,7 @@ const Index = () => {
             <DialogHeader>
               <DialogTitle>Iopu Aso</DialogTitle>
               <DialogDescription>
-                Iopu is a former professional athlete turned media personality. His background in sports and leadership 
-                brings a dynamic energy to the show. Known for his insightful questions and authentic approach, 
-                Iopu helps guests feel comfortable sharing their most personal stories.
+                Iopu Aso, or Yops as he is known, brings a potent mix of power and creativity to Joe Blow. A former All Black and Hurricanes rugby player, he spent years charging full-speed into human walls for a living (and making it look good). Now he's traded the rugby field for the editing suite as a content creator and videographer with his own business, iia Visualz, turning his ability to read plays into an uncanny knack for telling stories on screen. He might be the only guy who can tackle a 110kg forward in the morning and craft a cinematic masterpiece by the afternoon – and make both look easy. Yops is an avid fitness-junkie, and will be completing his first Hyrox in March 2025. With his blend of raw brawn and artistic flair, Yops proves that former athletes don't just retire – they rebrand and come out swinging in a whole new arena.
               </DialogDescription>
             </DialogHeader>
           </DialogContent>
@@ -247,4 +263,5 @@ const Index = () => {
       </footer>
     </div>;
 };
+
 export default Index;
