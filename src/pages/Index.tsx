@@ -1,16 +1,14 @@
+
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
-import AnimatedLogo from "@/components/AnimatedLogo";
+import Navigation from "@/components/Navigation";
+import Hero from "@/components/Hero";
+import Introduction from "@/components/Introduction";
+import EpisodeList from "@/components/EpisodeList";
+import HostsSection from "@/components/HostsSection";
+import ContactForm from "@/components/ContactForm";
+import Footer from "@/components/Footer";
 
 const Index = () => {
-  const [email, setEmail] = useState("");
   const [openTomDialog, setOpenTomDialog] = useState(false);
   const [openIopuDialog, setOpenIopuDialog] = useState(false);
 
@@ -26,26 +24,6 @@ const Index = () => {
 
   const handleButtonLeave = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.currentTarget.style.transform = 'translate(0, 0)';
-  };
-
-  const handleLogoHover = (e: React.MouseEvent<HTMLDivElement>) => {
-    const container = e.currentTarget;
-    const rect = container.getBoundingClientRect();
-    const logo = container.querySelector('.logo-image') as HTMLImageElement;
-    if (logo) {
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const moveX = (x - rect.width / 2) / rect.width * 200;
-      const moveY = (y - rect.height / 2) / rect.height * 200;
-      logo.style.transform = `translate(${moveX}px, ${moveY}px)`;
-    }
-  };
-
-  const handleLogoLeave = (e: React.MouseEvent<HTMLDivElement>) => {
-    const logo = e.currentTarget.querySelector('.logo-image') as HTMLImageElement;
-    if (logo) {
-      logo.style.transform = 'translate(0, 0)';
-    }
   };
 
   const handleHostHover = (e: React.MouseEvent<HTMLDivElement>, side: 'left' | 'right') => {
@@ -86,182 +64,32 @@ const Index = () => {
     }
   };
 
-  const episodes = [{
-    number: "01",
-    title: "Kate Malvern: Beating cancer after a four-month death sentence",
-    date: "Mar 12, 2025"
-  }, {
-    number: "02",
-    title: "Chloe Mascord: Breaking taboos - sex, intimacy, and self-discovery",
-    date: "Mar 19, 2025"
-  }, {
-    number: "03",
-    title: "Matt Smith: Growing up gay in rural New Zealand",
-    date: "Mar 26, 2025"
-  }, {
-    number: "04",
-    title: "Rob Thomas: From small watch business to multimillion-dollar success",
-    date: "Apr 3, 2025"
-  }, {
-    number: "05",
-    title: "Iopu Aso: All Black, family man, and leader",
-    date: "Apr 10, 2025"
-  }];
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Newsletter signup:", email);
-    setEmail("");
-  };
-
-  return <div className="min-h-screen">
-      <nav className="absolute top-0 left-0 right-0 flex justify-between items-center px-8 py-6 z-50">
-        <img src="/lovable-uploads/045a54d4-e9fd-4885-bdb1-a02182b034a0.png" alt="Brand Logo" className="h-10 w-10" />
-        <div className="flex gap-4">
-          <button className="px-6 py-2 rounded-full border border-black text-black hover:bg-highlight hover:border-highlight hover:text-white transition-all duration-200" onMouseMove={handleButtonHover} onMouseLeave={handleButtonLeave} onClick={scrollToEpisodes}>
-            Episodes
-          </button>
-          <button className="px-6 py-2 rounded-full bg-black text-white hover:bg-highlight transition-all duration-200" onMouseMove={handleButtonHover} onMouseLeave={handleButtonLeave}>
-            Subscribe
-          </button>
-        </div>
-      </nav>
-
-      <div className="relative h-screen w-full overflow-hidden bg-white">
-        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
-          <source src="https://cdn.shopify.com/videos/c/o/v/c292d14c8bb14e5bbe3a5539f3eb511e.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 z-20 flex items-center justify-center">
-          <AnimatedLogo />
-        </div>
-      </div>
-
-      <div>
-        <div className="container mx-auto px-8 pt-32 pb-20">
-          <div className="max-w-4xl">
-            <div className="animate-fade-in">
-              <span style={{
-              backgroundColor: '#F49ABE'
-            }} className="inline-block px-3 py-1 text-white rounded-full mb-6">
-                PODCAST
-              </span>
-              <h1 className="text-6xl font-bold mb-6">
-                A PODCAST ABOUT REAL <br />
-                PEOPLE AND RAW STORIES
-              </h1>
-              <p className="text-lg text-gray-600 mb-8 max-w-2xl">
-                Hosted by Tom Uhlich and Iopo Aso, we dive into the lives of those at the top of their field and those who have survived the unthinkable. From the relentless pursuit of greatness to the darkest battles fought in silence, <span className="font-bold text-highlight">Joe Blow</span> exposes the issues we all face but are too scared to admit. No bullshit, no filter - just the raw, unvarnished truth.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4 py-20" id="episodes">
-        <h2 className="text-4xl font-bold mb-12 animate-slide-up">
-          LATEST EPISODES
-          <br />
-          AVAILABLE NOW ↓
-        </h2>
-
-        <div className="max-w-4xl">
-          {episodes.map((episode, index) => <a key={index} href="#" className="episode-link group">
-              <div>
-                <span className="text-sm text-gray-400 mb-2 block">{episode.number}</span>
-                <h3 className="text-xl font-medium group-hover:text-highlight transition-colors">
-                  {episode.title}
-                </h3>
-              </div>
-              <div className="flex items-center">
-                <span className="text-sm text-gray-400 mr-4">{episode.date}</span>
-                <ArrowRight className="w-5 h-5 text-highlight opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-            </a>)}
-        </div>
-      </div>
-
-      <div className="bg-gray-50 py-20">
-        <div className="container mx-auto px-4 mb-12">
-          <h2 className="text-4xl font-bold">
-            MEET THE
-            <br />
-            CO-HOSTS ↓
-          </h2>
-        </div>
-
-        <div className="relative h-[600px] overflow-hidden">
-          <img src="/lovable-uploads/161c86b3-b1a6-465b-a4f9-9843d1ead1a8.png" alt="Podcast Hosts" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 flex">
-            <div className="w-1/2 h-full relative cursor-none" onMouseMove={e => handleHostHover(e, 'left')} onMouseLeave={handleHostLeave} onClick={() => handleHostClick('left')}>
-              <div className="host-button absolute px-6 py-2 rounded-full bg-highlight text-white opacity-0 transition-opacity pointer-events-none whitespace-nowrap" style={{
-              transform: 'translate(-50%, -50%)'
-            }}>
-                TOM UHLICH
-              </div>
-            </div>
-            <div className="w-1/2 h-full relative cursor-none" onMouseMove={e => handleHostHover(e, 'right')} onMouseLeave={handleHostLeave} onClick={() => handleHostClick('right')}>
-              <div className="host-button absolute px-6 py-2 rounded-full bg-highlight text-white opacity-0 transition-opacity pointer-events-none whitespace-nowrap" style={{
-              transform: 'translate(-50%, -50%)'
-            }}>
-                IOPU ASO
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <Dialog open={openTomDialog} onOpenChange={setOpenTomDialog}>
-          <DialogContent className="sm:max-w-[425px]">
-            <DialogHeader>
-              <DialogTitle>Tom Uhlich</DialogTitle>
-              <DialogDescription>Tom Uhlich is an Austrian-born (with Slovak roots), Aussie-bred father of two who defines the word &quot;driven.&quot; He's spent over 21 years as an entrepreneur (currently heading up Boss Money) and is a self-professed fitness freak who has eight Ironman triathlons (all under 10 hours), six marathons (all under 3 hours), and even a trio of Hyrox events under his belt. He once hitchhiked across Africa for six months with absolutely no plan – a testament to his &quot;just wing it&quot; life philosophy. A die-hard self-development junkie, Tom devours books and podcasts like they're going out of style, which means he's either genuinely wise by now or just really good at regurgitating other people's quotes. He insists authenticity is everything, so on Joe Blow you can expect brutal honesty, a few accidental overshares, and the occasional motivational one-liner delivered with a grin. And if you ever need an icebreaker, ask about his grandfather – he once met Hitler.</DialogDescription>
-            </DialogHeader>
-          </DialogContent>
-        </Dialog>
-
-        <Dialog open={openIopuDialog} onOpenChange={setOpenIopuDialog}>
-          <DialogContent className="sm:max-w-[425px]">
-            <DialogHeader>
-              <DialogTitle>Iopu Aso</DialogTitle>
-              <DialogDescription>
-                Iopu Aso, or Yops as he is known, brings a potent mix of power and creativity to Joe Blow. A former All Black and Hurricanes rugby player, he spent years charging full-speed into human walls for a living (and making it look good). Now he's traded the rugby field for the editing suite as a content creator and videographer with his own business, iia Visualz, turning his ability to read plays into an uncanny knack for telling stories on screen. He might be the only guy who can tackle a 110kg forward in the morning and craft a cinematic masterpiece by the afternoon – and make both look easy. Yops is an avid fitness-junkie, and will be completing his first Hyrox in March 2025. With his blend of raw brawn and artistic flair, Yops proves that former athletes don't just retire – they rebrand and come out swinging in a whole new arena.
-              </DialogDescription>
-            </DialogHeader>
-          </DialogContent>
-        </Dialog>
-      </div>
-
-      <div className="container mx-auto px-4 py-20">
-        <div className="max-w-4xl">
-          <h2 className="text-4xl font-bold mb-12">
-            REACH OUT AND CONNECT WITH US
-          </h2>
-          
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              <input type="text" placeholder="Name" className="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-highlight" />
-              <input type="email" placeholder="Email" className="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-highlight" value={email} onChange={e => setEmail(e.target.value)} />
-            </div>
-            <textarea placeholder="Message" rows={4} className="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-highlight" />
-            <button type="submit" className="px-6 py-2 rounded-full bg-black text-white hover:bg-highlight transition-all duration-200" onMouseMove={handleButtonHover} onMouseLeave={handleButtonLeave}>
-              Send Message
-            </button>
-          </form>
-        </div>
-      </div>
-
-      <footer className="border-t py-8">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center">
-            <img src="/lovable-uploads/ab081bb6-32f6-4e5b-9545-85d35726c04c.png" alt="FWD Obsessed Logo" className="h-6" />
-            <div className="flex space-x-6">
-              <a href="#" className="text-gray-600 hover:text-highlight">Spotify</a>
-              <a href="#" className="text-gray-600 hover:text-highlight">Apple Podcasts</a>
-              <a href="#" className="text-gray-600 hover:text-highlight">Google Podcasts</a>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>;
+  return (
+    <div className="min-h-screen">
+      <Navigation 
+        handleButtonHover={handleButtonHover}
+        handleButtonLeave={handleButtonLeave}
+        scrollToEpisodes={scrollToEpisodes}
+      />
+      <Hero />
+      <Introduction />
+      <EpisodeList />
+      <HostsSection 
+        handleHostHover={handleHostHover}
+        handleHostLeave={handleHostLeave}
+        handleHostClick={handleHostClick}
+        openTomDialog={openTomDialog}
+        setOpenTomDialog={setOpenTomDialog}
+        openIopuDialog={openIopuDialog}
+        setOpenIopuDialog={setOpenIopuDialog}
+      />
+      <ContactForm 
+        handleButtonHover={handleButtonHover}
+        handleButtonLeave={handleButtonLeave}
+      />
+      <Footer />
+    </div>
+  );
 };
 
 export default Index;
