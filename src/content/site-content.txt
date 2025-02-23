@@ -1,0 +1,58 @@
+
+JOE BLOW PODCAST - CONTENT DOCUMENT
+
+META INFORMATION
+---------------
+Title: Joe Blow Podcast
+Tagline: Real People. Raw Stories.
+Description: A podcast about real people and raw stories, hosted by Tom Uhlich and Iopu Aso.
+
+NAVIGATION
+----------
+Buttons:
+- Episodes
+- Subscribe
+
+INTRODUCTION SECTION
+------------------
+Label: PODCAST
+Headline: A PODCAST ABOUT REAL PEOPLE AND RAW STORIES
+Description: Hosted by Tom Uhlich and Iopo Aso, we dive into the lives of those at the top of their field and those who have survived the unthinkable. From the relentless pursuit of greatness to the darkest battles fought in silence, Joe Blow exposes the issues we all face but are too scared to admit. No bullshit, no filter - just the raw, unvarnished truth.
+
+EPISODES SECTION
+---------------
+Heading: LATEST EPISODES AVAILABLE NOW ↓
+
+Episodes:
+1. "Kate Malvern: Beating cancer after a four-month death sentence" (Mar 12, 2025)
+2. "Chloe Mascord: Breaking taboos - sex, intimacy, and self-discovery" (Mar 19, 2025)
+3. "Matt Smith: Growing up gay in rural New Zealand" (Mar 26, 2025)
+4. "Rob Thomas: From small watch business to multimillion-dollar success" (Apr 3, 2025)
+5. "Iopu Aso: All Black, family man, and leader" (Apr 10, 2025)
+
+HOSTS SECTION
+------------
+Heading: MEET THE CO-HOSTS ↓
+
+Tom Uhlich Bio:
+Tom Uhlich is an Austrian-born (with Slovak roots), Aussie-bred father of two who defines the word "driven." He's spent over 21 years as an entrepreneur (currently heading up Boss Money) and is a self-professed fitness freak who has eight Ironman triathlons (all under 10 hours), six marathons (all under 3 hours), and even a trio of Hyrox events under his belt. He once hitchhiked across Africa for six months with absolutely no plan – a testament to his "just wing it" life philosophy. A die-hard self-development junkie, Tom devours books and podcasts like they're going out of style, which means he's either genuinely wise by now or just really good at regurgitating other people's quotes. He insists authenticity is everything, so on Joe Blow you can expect brutal honesty, a few accidental overshares, and the occasional motivational one-liner delivered with a grin. And if you ever need an icebreaker, ask about his grandfather – he once met Hitler.
+
+Iopu Aso Bio:
+Iopu Aso, or Yops as he is known, brings a potent mix of power and creativity to Joe Blow. A former All Black and Hurricanes rugby player, he spent years charging full-speed into human walls for a living (and making it look good). Now he's traded the rugby field for the editing suite as a content creator and videographer with his own business, iia Visualz, turning his ability to read plays into an uncanny knack for telling stories on screen. He might be the only guy who can tackle a 110kg forward in the morning and craft a cinematic masterpiece by the afternoon – and make both look easy. Yops is an avid fitness-junkie, and will be completing his first Hyrox in March 2025. With his blend of raw brawn and artistic flair, Yops proves that former athletes don't just retire – they rebrand and come out swinging in a whole new arena.
+
+CONTACT SECTION
+--------------
+Heading: REACH OUT AND CONNECT WITH US
+
+Form Fields:
+- Name (placeholder)
+- Email (placeholder)
+- Message (placeholder)
+Button: Send Message
+
+FOOTER
+------
+Links:
+- Spotify
+- Apple Podcasts
+- Google Podcasts
