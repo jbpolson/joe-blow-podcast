@@ -14,7 +14,6 @@ const letterImages = [
 const AnimatedLogo = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,41 +30,12 @@ const AnimatedLogo = () => {
       observer.observe(container);
     }
 
-    const handleScroll = () => {
-      if (container) {
-        const rect = container.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        const progress = Math.max(0, Math.min(1, 1 - (rect.top / windowHeight)));
-        setScrollProgress(progress);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-
     return () => {
       if (container) {
         observer.unobserve(container);
       }
-      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  const getLetterStyle = (index: number) => {
-    const waveAmplitude = 50;
-    const waveFrequency = 2;
-    const baseDelay = index * 0.3;
-    
-    const waveOffset = scrollProgress > 0 
-      ? Math.sin((scrollProgress * Math.PI * waveFrequency) + baseDelay) * waveAmplitude * scrollProgress
-      : 0;
-    
-    return {
-      transform: `translateY(${waveOffset}px)`,
-      transition: 'transform 0.3s ease-out',
-      marginLeft: index === 3 ? '1rem' : undefined,
-    };
-  };
 
   return (
     <div 
@@ -76,7 +46,6 @@ const AnimatedLogo = () => {
         <div
           key={index}
           className="relative"
-          style={getLetterStyle(index)}
         >
           <img 
             src={src}
